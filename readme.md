@@ -1,4 +1,12 @@
-Prepare computer do devellopment
+## Prepare Visual Studio code for Google App Script development ## 
+
+```
+sudo npm -g install typescript && sudo npm i -S @types/google-apps-script && sudo npm install -g @google/clasp && sudo npm -g install eslint prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+
+
+
 
 See:
 https://hackernoon.com/writing-google-apps-script-code-locally-in-vscode

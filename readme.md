@@ -1,3 +1,7 @@
+## The engine ##
+
+https://www.npmjs.com/package/@google/clasp
+
 ## 1. Prepare Visual Studio code for Google App Script development ## 
 
 ```

@@ -26,10 +26,12 @@ clasp -P src/ push
 
 ### For more information  see: ###
 
-https://hackernoon.com/writing-google-apps-script-code-locally-in-vscode \n
+https://hackernoon.com/writing-google-apps-script-code-locally-in-vscode 
+
 https://jasonjurotich.medium.com/quick-setup-for-google-clasp-fb4b8fc51f39
 
 ### Must enable google appscript api ###
+
 https://script.google.com/home/usersettings
 
 

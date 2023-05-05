@@ -96,14 +96,5 @@ function populateNewSheet(newSheetID, sheetName) {
   //Freeze first 2 rows and 2 columns
   sheet.setFrozenRows(2)
   sheet.setFrozenColumns(2)
-
-
-
-
-
-
-
-
-
-
+  
 }

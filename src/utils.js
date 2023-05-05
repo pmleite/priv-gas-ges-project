@@ -7,10 +7,13 @@
  * @param {bool} verbose : When true turn verbose mode active
  * 
  */
+
+
 function convertIndexToLetter(idx) {
 
   var letters  = ["A","B","C","D","E","F","G","H","I","J","K","L","M",
                   "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
 
   //Get the last letter from cell                  
   var finalValue   = ""
@@ -30,18 +33,14 @@ function convertIndexToLetter(idx) {
     var thirdLetter  = letters[((idx - 1) % 26)];
     finalValue = firstLetter+secondLetter+thirdLetter
   }
-  printInfo(finalValue)
   return finalValue
 }
-
-
 
 
 //Simple logging function
 function printInfo(info){
   if (verbose) Logger.log(info)
 }
-
 
 /**
  * Info panel
@@ -78,10 +77,18 @@ var infoCellL3  = spreadSheet.getRange(rangeInfoCell3);
  }
 }
 
+//
+
 //Obtain number of days by month
 function getDaysInMonth(year, month) {
   var days = new Date(year, month + 1, 0).getDate();
   return days;
 }
 
-
+function addDaysOfYearToList(){
+  for (var i = 0; i < numDays; i++) {
+    var day = new Date(firstDate.getTime() + (i * 24 * 60 * 60 * 1000));
+    var date = day.getDate() + "/" + (day.getMonth()+1)
+    hollydays.indexOf(date) == -1 ? daysOfYear.push(Utilities.formatDate(day, "GMT", "dd")) : daysOfYear.push("F");  
+  }
+}

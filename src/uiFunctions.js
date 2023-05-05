@@ -1,7 +1,7 @@
 //Add menu to UI
 function addMenu(){
   SpreadsheetApp.getUi().createMenu('Gerador').addItem('Gerar Nova Folha', 'ges_project.generateFile').addToUi();
-  infoCellL1.setValue("Script active!");
+  //infoCellL1.setValue("Script active!");
 }
 
 
@@ -39,19 +39,17 @@ function generateNewFile(response, myUI){
     myUI.alert(' O ficheiro '+ fileName + ' já existe!')   
   }else{
    
-    var folder      = DriveApp.getFolderById(baseFolderID)
+    var folder      = DriveApp.getFolderById(referenceIDs.folderIDs.baseFolderID)
     var newSheet    = SpreadsheetApp.create(fileName)
     var newSheetID  = newSheet.getId();
     var newFile     = DriveApp.getFileById(newSheetID)
-    var sheetName   = 'alocacao_' + response
+    var sheetName   = baseAlocationSheetName + response
 
     newFile.moveTo(folder) 
-
     var spreadSheet  = SpreadsheetApp.openById(newSheetID);
-    var defaultSheet = spreadSheet.getSheetByName("Sheet1");
-  
+
     spreadSheet.insertSheet(1).setName(sheetName);
-    spreadSheet.deleteSheet(defaultSheet)
+    spreadSheet.deleteSheet(spreadSheet.getSheetByName("Sheet1"))
 
     populateNewSheet(newSheetID, sheetName);
     myUI.alert('Ficheiro ' + fileName + ' criado com sucesso!')

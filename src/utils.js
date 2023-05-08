@@ -87,8 +87,17 @@ function getDaysInMonth(year, month) {
 
 function addDaysOfYearToList(){
   for (var i = 0; i < numDays; i++) {
+    
     var day = new Date(firstDate.getTime() + (i * 24 * 60 * 60 * 1000));
     var date = day.getDate() + "/" + (day.getMonth()+1)
-    hollydays.indexOf(date) == -1 ? daysOfYear.push(Utilities.formatDate(day, "GMT", "dd")) : daysOfYear.push("F");  
+
+    //Check if the day is a weekend or a hollyday
+    if (i%7 == 0 ){
+      daysOfYear.push("D")
+    }else if( i%7 == 6){
+      daysOfYear.push("S")
+    }else{
+      hollydays.indexOf(date) == -1 ? daysOfYear.push(Utilities.formatDate(day, "GMT", "dd")) : daysOfYear.push("F");
+    }
   }
 }

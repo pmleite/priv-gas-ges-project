@@ -48,23 +48,20 @@ function populateNewSheet(newSheetID, sheetName) {
     fullRange.setBackgroundColor(bckgColor[i%2])
     month.merge();
 
+    //sheet.getRange(endColumn + "3:" + endColumn).toBorder.setBorder(false, true, true, null, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
+
     //define new start column
     firstColumn = endColumn+1
 
   }
 
-  //Set background color of columns corresponding to the weekends to red
-  firstColumn = 3
-  for (i=0; i<=numDays; i++){
-    if (i%7 == 0 || i%7 == 6){
-      sheet.getRange(convertIndexToLetter(firstColumn+i)+"2:"+convertIndexToLetter(firstColumn+i)+"40").setBackgroundColor(bckgColor[4])
-    }
-  }
-
-  //Set background color of columns with "F" on row 2 to #e69138
+  //Set background color of columns representing weekends and holidays
   for (i=3; i<=numDays+2; i++){
     if (sheet.getRange(convertIndexToLetter(i)+"2").getValue() == "F"){
       sheet.getRange(convertIndexToLetter(i)+"2:"+convertIndexToLetter(i)+"40").setBackgroundColor(bckgColor[5])
+    }else if(sheet.getRange(convertIndexToLetter(i)+"2").getValue() == "D" || 
+             sheet.getRange(convertIndexToLetter(i)+"2").getValue() == "S"){
+      sheet.getRange(convertIndexToLetter(i)+"2:"+convertIndexToLetter(i)+"40").setBackgroundColor(bckgColor[4])        
     }
   }
 
@@ -109,8 +106,7 @@ function populateNewSheet(newSheetID, sheetName) {
   targetResourceCells.setDataValidation(resourcesRule);
   targetFullCallandar.setDataValidation(projectsRule);
 
+  
+
+
 }
-
-
-
-

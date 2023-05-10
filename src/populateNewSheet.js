@@ -105,8 +105,5 @@ function populateNewSheet(newSheetID, sheetName) {
 
   targetResourceCells.setDataValidation(resourcesRule);
   targetFullCallandar.setDataValidation(projectsRule);
-
-  
-
-
 }
+

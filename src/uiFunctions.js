@@ -55,4 +55,6 @@ function generateNewFile(response, myUI){
     myUI.alert('Ficheiro ' + fileName + ' criado com sucesso!')
   }
 
+  //test
+
 }
